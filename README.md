@@ -28,9 +28,8 @@ Install dependencies with `pip`:
 
 ```bash
 pip install -r requirements.txt
-
-
-
+```
+---
 ## 🧪 Testing Process
 
 This project includes unit tests for the `tracker` app to validate:
@@ -45,3 +44,5 @@ From the project root, run:
 
 ```bash
 python manage.py test tracker
+
+```
