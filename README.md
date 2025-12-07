@@ -29,3 +29,19 @@ Install dependencies with `pip`:
 ```bash
 pip install -r requirements.txt
 
+
+
+## 🧪 Testing Process
+
+This project includes unit tests for the `tracker` app to validate:
+
+- **Model creation** → ensures `CovidData` saves correctly.
+- **Data view (`/data/`)** → checks that stored data is displayed in the table.
+- **Extract view (`/extract/`)** → verifies that calling the API inserts a new record.
+
+### Run Tests
+
+From the project root, run:
+
+```bash
+python manage.py test tracker
