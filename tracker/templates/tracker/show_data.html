@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>COVID Data</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f4f6f9;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      h1 {
+        text-align: center;
+        color: #333;
+        margin-top: 20px;
+      }
+
+      a {
+        display: inline-block;
+        margin: 20px auto;
+        padding: 10px 15px;
+        background: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background 0.3s ease;
+      }
+
+      a:hover {
+        background: #0056b3;
+      }
+
+      table {
+        width: 90%;
+        margin: 0 auto;
+        border-collapse: collapse;
+        background: #fff;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      th,
+      td {
+        padding: 12px 15px;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+      }
+
+      th {
+        background: #007bff;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      tr:hover {
+        background: #f1f1f1;
+      }
+
+      td {
+        color: #555;
+      }
+
+      .info-box {
+        width: 80%;
+        margin: 20px auto;
+        text-align: center;
+        background: #e9ecef;
+        padding: 15px;
+        border-radius: 8px;
+        font-size: 15px;
+        color: #333;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .footer {
+        margin-top: auto;
+        background: #333;
+        color: #fff;
+        text-align: center;
+        padding: 15px 0;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>COVID-19 USA Data</h1>
+    <a href="{% url 'extract_data' %}">Extract Data</a>
+
+    <table>
+      <tr>
+        <th>Country</th>
+        <th>Cases</th>
+        <th>Deaths</th>
+        <th>Recovered</th>
+        <th>Inserted At</th>
+      </tr>
+      {% for entry in data %}
+        <tr>
+          <td>{{ entry.country }}</td>
+          <td>{{ entry.cases }}</td>
+          <td>{{ entry.deaths }}</td>
+          <td>{{ entry.recovered }}</td>
+          <td>{{ entry.updated_at }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+
+    <div class="info-box">
+      <p>
+        This application retrieves COVID-19 information from a <strong>public API</strong>
+        (<a href="https://disease.sh" target="_blank">disease.sh</a>) and stores the data locally in a SQLite database for demonstration purposes.
+      </p>
+    </div>
+    <div class="info-box">
+      <p>Peer-graded Assignment: Data Collection</p>
+    </div>
+  </body>
+</html>
